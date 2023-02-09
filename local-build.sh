@@ -33,13 +33,6 @@ docker build \
 	-f docker/Dockerfile.acmesh \
 	.
 
-echo -e "${BLUE}❯ ${CYAN}Building ${YELLOW}certbot ${CYAN}...${RESET}"
-docker build \
-	--build-arg BASE_TAG=latest \
-	-t ${DOCKER_IMAGE}:certbot \
-	-f docker/Dockerfile.certbot \
-	.
-
 echo -e "${BLUE}❯ ${CYAN}Building ${YELLOW}acmesh-golang ${CYAN}...${RESET}"
 docker build \
 	--build-arg BASE_TAG=acmesh \
@@ -47,11 +40,5 @@ docker build \
 	-f docker/Dockerfile.acmesh-golang \
 	.
 
-echo -e "${BLUE}❯ ${CYAN}Building ${YELLOW}certbot-node ${CYAN}...${RESET}"
-docker build \
-	--build-arg BASE_TAG=certbot \
-	-t ${DOCKER_IMAGE}:certbot-node \
-	-f docker/Dockerfile.certbot-node \
-	.
 
 echo -e "${BLUE}❯ ${GREEN}All done!${RESET}"
